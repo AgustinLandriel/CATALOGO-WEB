@@ -24,7 +24,7 @@ namespace datos
         //Creo la conexion cuando se llama a la clase
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=Catalogo_DB; integrated security=true;");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true;");
             comando = new SqlCommand();
 
         }
@@ -32,10 +32,10 @@ namespace datos
 
         //Comando para la SP
 
-        public  void setSP (string storeProcedure)
+        public  void setQuery (string consulta)
         {
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.CommandText = storeProcedure;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = consulta;
         }
 
         public void setVariables(string var, object dato)
@@ -45,7 +45,9 @@ namespace datos
 
         public void EjecutarLectura()
         {
+
             conexion.Open();
+            comando.Connection = conexion;
 
             try
             {
