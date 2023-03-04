@@ -9,8 +9,8 @@
         <Columns>
             <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
              <asp:BoundField HeaderText="Producto" DataField="Nombre" />
-             <asp:BoundField HeaderText="Marca" DataField="Marca" />
-             <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
+             <asp:BoundField HeaderText="Marca" DataField="Marca.Descripcion" />
+             <asp:BoundField HeaderText="Categoria" DataField="Categoria.Descripcion" />
              <asp:BoundField HeaderText="Precio" DataField="Precio" />
              <asp:CommandField HeaderText="Editar" SelectText="Modificar" ShowSelectButton="true" />
         </Columns>
