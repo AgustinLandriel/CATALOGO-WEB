@@ -5,17 +5,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="row">
-        <asp:GridView runat="server" ID="dgvProductos" DataKeyNames="id" AutoGenerateColumns="false" CssClass="table table-striped">
-        <Columns>
-            <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
-             <asp:BoundField HeaderText="Producto" DataField="Nombre" />
-             <asp:BoundField HeaderText="Marca" DataField="Marca.Descripcion" />
-             <asp:BoundField HeaderText="Categoria" DataField="Categoria.Descripcion" />
-             <asp:BoundField HeaderText="Precio" DataField="Precio" />
-             <asp:CommandField HeaderText="Editar" SelectText="Modificar" ShowSelectButton="true" />
-        </Columns>
-    </asp:GridView>
+        <div class="col m-4">
+            <h3 class="my-3">Listado de Productos</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <asp:GridView runat="server" ID="dgvProductos" DataKeyNames="id" AutoGenerateColumns="false" CssClass=" my-5 table border-2 border border-light shadow-lg shadow">
+                <Columns>
+                    <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
+                    <asp:BoundField HeaderText="Producto" DataField="Nombre" />
+                    <asp:BoundField HeaderText="Marca" DataField="Marca.Descripcion" />
+                    <asp:BoundField HeaderText="Categoria" DataField="Categoria.Descripcion" />
+                    <asp:BoundField HeaderText="Precio" DataField="Precio" />
+                    <asp:CommandField HeaderText="Editar" SelectText="Modificar" ShowSelectButton="true" />
+                </Columns>
+            </asp:GridView>
             <a href="#" class="btn btn-primary">Agregar producto</a>
+        </div>
     </div>
 
 </asp:Content>
