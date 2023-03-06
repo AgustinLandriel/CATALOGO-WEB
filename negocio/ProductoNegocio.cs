@@ -58,5 +58,33 @@ namespace negocio
                 datos.CerrarConexion();
             }
         }
+        public void AgregarProducto(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<Articulo> lista = new List<Articulo>();
+
+            datos.setSP("@SP_ALTA");
+            datos.setVariables("@codigo", articulo.Codigo);
+            datos.setVariables("@nombre", articulo.Nombre);
+            datos.setVariables("@descripcion", articulo.Descripcion);
+            datos.setVariables("@marca", articulo.Marca.Id);
+            datos.setVariables("@categoria", articulo.Categoria.Id);
+            datos.setVariables("@imagenUrl", articulo.ImagenUrl);
+            datos.setVariables("@precio", articulo.Precio);
+            try
+            {
+                datos.EjecutarAccion();
+             
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }

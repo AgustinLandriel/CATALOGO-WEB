@@ -38,6 +38,12 @@ namespace datos
             comando.CommandText = consulta;
         }
 
+        public void setSP(string sp)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = sp;
+        }
+
         public void setVariables(string var, object dato)
         {
             comando.Parameters.AddWithValue(var, dato);

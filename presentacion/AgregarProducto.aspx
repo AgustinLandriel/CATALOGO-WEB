@@ -34,8 +34,8 @@
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Imágen producto</label>
-                <asp:FileUpload ID="urlImagen" CssClass="form-control"  runat="server" />
-                <asp:Image ImageUrl="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" CssClass=" p-3 w-50 h-auto" runat="server" />
+                <asp:TextBox ID="urlImagen" CssClass="form-control" runat="server" OnTextChanged="urlImagen_TextChanged" AutoPostBack="true"/>
+                <asp:Image ID="ImgFoto" CssClass=" p-3 w-50 h-auto" runat="server"  />
             </div>
             <div class="mb-3">
                 <asp:Label Text="Precio" CssClass="form-label" runat="server" />
