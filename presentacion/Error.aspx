@@ -5,7 +5,7 @@
 
     <div class="row">
         <h3>Ups, ocurrió un error!</h3>
-        <asp:Label runat="server" Text="Error!" id="lblError"></asp:Label>
+        <asp:Label runat="server" Text="" id="lblError"></asp:Label>
         <a href="ProductoLista.aspx" class="btn btn-danger">Volver</a>
     </div>
 </asp:Content>

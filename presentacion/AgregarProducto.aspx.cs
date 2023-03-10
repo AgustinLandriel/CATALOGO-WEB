@@ -102,7 +102,7 @@ namespace presentacion
             }
             catch (Exception ex)
             {
-                //Session("error", ex.ToString());
+                Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
         }

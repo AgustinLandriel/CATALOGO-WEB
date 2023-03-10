@@ -72,12 +72,12 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             List<Articulo> lista = new List<Articulo>();
 
-            datos.setSP("@SP_ALTA");
+            datos.setSP("SP_ALTA");
             datos.setVariables("@codigo", articulo.Codigo);
             datos.setVariables("@nombre", articulo.Nombre);
             datos.setVariables("@descripcion", articulo.Descripcion);
-            datos.setVariables("@marca", articulo.Marca.Id);
-            datos.setVariables("@categoria", articulo.Categoria.Id);
+            datos.setVariables("@idMarca", articulo.Marca.Id);
+            datos.setVariables("@idCategoria", articulo.Categoria.Id);
             datos.setVariables("@imagenUrl", articulo.ImagenUrl);
             datos.setVariables("@precio", articulo.Precio);
             try
@@ -103,13 +103,13 @@ namespace negocio
             try
             {
                 List<Articulo> lista = new List<Articulo>();
-                datos.setSP("@SP_MODIFICAR");
+                datos.setSP("SP_MODIFICAR");
                 datos.setVariables("@id", articulo.Id);
                 datos.setVariables("@codigo", articulo.Codigo);
                 datos.setVariables("@nombre", articulo.Nombre);
                 datos.setVariables("@descripcion", articulo.Descripcion);
-                datos.setVariables("@marca", articulo.Marca.Id);
-                datos.setVariables("@categoria", articulo.Categoria.Id);
+                datos.setVariables("@idMarca", articulo.Marca.Id);
+                datos.setVariables("@idCategoria", articulo.Categoria.Id);
                 datos.setVariables("@imagenUrl", articulo.ImagenUrl);
                 datos.setVariables("@precio", articulo.Precio);
                 datos.EjecutarAccion();
