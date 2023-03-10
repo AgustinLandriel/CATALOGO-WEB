@@ -18,7 +18,7 @@
                     <asp:BoundField HeaderText="Marca" DataField="Marca.Descripcion" />
                     <asp:BoundField HeaderText="Categoria" DataField="Categoria.Descripcion" />
                     <asp:BoundField HeaderText="Precio" DataField="Precio" />
-                    <asp:CommandField HeaderText="Editar" SelectText="Modificar" ShowSelectButton="true" />
+                    <asp:CommandField HeaderText="Editar" SelectText="Modificar" ItemStyle-CssClass="bi bi-pencil-square" ControlStyle-CssClass=" text-danger fw-bolder p-1 text-decoration-none" ShowSelectButton="true"  />
                 </Columns>
             </asp:GridView>
             <a href="AgregarProducto.aspx" class="btn btn-primary">Agregar producto</a>

@@ -76,6 +76,7 @@
     <Content Include="Global.asax" />
     <Content Include="ProductoLista.aspx" />
     <Content Include="Productos.aspx" />
+    <Content Include="styles\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

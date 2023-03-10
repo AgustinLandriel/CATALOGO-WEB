@@ -18,7 +18,7 @@
             </div>
             <div class="mb-3">
                 <asp:Label Text="Descripcion" CssClass="form-label" runat="server" />
-                <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" CssClass="form-control" />
+                <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" CssClass="form-control resize" />
             </div>
             <asp:Label Text="Marca" CssClass="form-label" runat="server" />
             <div class="dropdown mb-3">
@@ -35,7 +35,7 @@
             <div class="mb-3">
                 <label for="formFile" class="form-label">Imágen producto</label>
                 <asp:TextBox ID="urlImagen" CssClass="form-control" runat="server" OnTextChanged="urlImagen_TextChanged" AutoPostBack="true"/>
-                <asp:Image ID="ImgFoto" CssClass=" p-3 w-50 h-auto" runat="server"  />
+                <asp:Image ID="ImgFoto" CssClass="w-50 h-auto" runat="server"  />
             </div>
             <div class="mb-3">
                 <asp:Label Text="Precio" CssClass="form-label" runat="server" />
@@ -46,5 +46,8 @@
                 <a href="ProductoLista.aspx" class="btn btn-danger">Volver</a>
             </div>
         </div>
+        
+        <asp:Label Text="" ID="lblAlerta" runat="server" />
+        
     </div>
 </asp:Content>

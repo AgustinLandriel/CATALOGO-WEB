@@ -28,10 +28,13 @@ namespace presentacion
 
                     txtNombre.Text = articuloSeleccionado.Nombre;
                     txtCodigo.Text = articuloSeleccionado.Codigo;
-                    txtCodigo.Text = articuloSeleccionado.Descripcion;
+                    txtDescripcion.Text = articuloSeleccionado.Descripcion;
                     urlImagen.Text = articuloSeleccionado.ImagenUrl;
                     ImgFoto.ImageUrl = articuloSeleccionado.ImagenUrl;
                     txtPrecio.Text = articuloSeleccionado.Precio.ToString();
+
+                    btnAgregar.Text = "Modificar";
+                    btnAgregar.CssClass = "btn btn-warning";
                 }
             }
             catch (Exception)
@@ -43,7 +46,6 @@ namespace presentacion
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-
             try
             {
                 ProductoNegocio negocio = new ProductoNegocio();
@@ -60,9 +62,24 @@ namespace presentacion
                 articulo.Marca = new Marca();
                 articulo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
 
+
+                //Si el id no es nulo es por que voy a modificarlo
+                if (Request.QueryString["id"] != null) 
+                {
+                    //int id = int.Parse(Request.QueryString["id"].ToString()); // Guardo el ID del articulo
+
+                    lblAlerta.Text = "Articulo modificado correctamente!";
+                    lblAlerta.CssClass = "alert alert-success";
+
+                    negocio.ModificarProducto(articulo);
+
+                    return;
+                }
+
                 negocio.AgregarProducto(articulo);
-                Response.Redirect("ProductoLista.aspx");
-                
+                lblAlerta.Text = "Articulo agregado correctamente!";
+                lblAlerta.CssClass = "alert alert-primary";
+
             }
             catch (Exception)
             {
