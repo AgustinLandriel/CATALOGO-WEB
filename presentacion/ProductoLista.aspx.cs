@@ -19,5 +19,20 @@ namespace presentacion
             dgvProductos.DataSource = negocio.ListarArticulos();
             dgvProductos.DataBind();
         }
+
+        protected void dgvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgvProductos.SelectedDataKey.Value.ToString());
+            
+            try
+            {
+                Response.Redirect("AgregarProducto.aspx?id=" + id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

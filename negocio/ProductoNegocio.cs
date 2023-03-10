@@ -10,17 +10,25 @@ namespace negocio
 {
     public class ProductoNegocio
     {
-        public List<Articulo> ListarArticulos()
+        public List<Articulo> ListarArticulos(string id = "")
         {
             AccesoDatos datos = new AccesoDatos();
             List<Articulo> lista = new List<Articulo>();
 
-            datos.setQuery(@"select a.id,a.codigo,a.nombre,a.descripcion, a.imagenUrl, a.precio,cat.Id,cat.Descripcion as [Categoria],mar.id,mar.Descripcion as [Marca]
+            string consulta = @"select a.id,a.codigo,a.nombre,a.descripcion, a.imagenUrl, a.precio,cat.Id,cat.Descripcion as [Categoria],mar.id,mar.Descripcion as [Marca]
                                 FROM ARTICULOS as a
                                 INNER JOIN CATEGORIAS as cat
                                 ON(a.IdCategoria = cat.Id)
                                 INNER JOIN MARCAS as mar
-                                ON(a.IdMarca = mar.Id)");
+                                ON(a.IdMarca = mar.Id)";
+
+            if (id != "")
+            {
+                consulta += "WHERE a.id =" + id;
+            }
+
+            datos.setQuery(consulta);
+
 
             datos.EjecutarLectura();
 
@@ -45,7 +53,7 @@ namespace negocio
 
                     lista.Add(articulo);
                 }
-               
+
                 return lista;
             }
             catch (Exception)
@@ -58,6 +66,7 @@ namespace negocio
                 datos.CerrarConexion();
             }
         }
+
         public void AgregarProducto(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -74,7 +83,7 @@ namespace negocio
             try
             {
                 datos.EjecutarAccion();
-             
+
             }
             catch (Exception)
             {

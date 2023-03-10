@@ -13,7 +13,32 @@ namespace presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                ProductoNegocio negocio = new ProductoNegocio();
 
+                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+
+                if (id != "" && !IsPostBack)
+                {
+                    // Si id no es vacio y es postback pasa a la pagina de modificar
+
+                    //el [0] es para que me devuelva solo una posicion. Ya que el objeto no es una lista 
+                    Articulo articuloSeleccionado = negocio.ListarArticulos(id)[0];
+
+                    txtNombre.Text = articuloSeleccionado.Nombre;
+                    txtCodigo.Text = articuloSeleccionado.Codigo;
+                    txtCodigo.Text = articuloSeleccionado.Descripcion;
+                    urlImagen.Text = articuloSeleccionado.ImagenUrl;
+                    ImgFoto.ImageUrl = articuloSeleccionado.ImagenUrl;
+                    txtPrecio.Text = articuloSeleccionado.Precio.ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -46,10 +71,6 @@ namespace presentacion
             }
         }
 
-        protected void ImgFoto_Load(object sender, EventArgs e)
-        {
-           
-        }
 
         protected void urlImagen_TextChanged(object sender, EventArgs e)
         {

@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <asp:GridView runat="server" ID="dgvProductos" DataKeyNames="id" AutoGenerateColumns="false" CssClass=" my-5 table border-2 border border-light shadow-lg shadow">
+            <asp:GridView OnSelectedIndexChanged="dgvProductos_SelectedIndexChanged" runat="server" ID="dgvProductos" DataKeyNames="id" AutoGenerateColumns="false" CssClass=" my-5 table border-2 border border-light shadow-lg shadow">
                 <Columns>
                     <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
                     <asp:BoundField HeaderText="Producto" DataField="Nombre" />
