@@ -98,11 +98,11 @@ namespace negocio
 
         public void ModificarProducto(Articulo articulo)
         {
+             AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                AccesoDatos datos = new AccesoDatos();
                 List<Articulo> lista = new List<Articulo>();
-
                 datos.setSP("@SP_MODIFICAR");
                 datos.setVariables("@id", articulo.Id);
                 datos.setVariables("@codigo", articulo.Codigo);
@@ -112,27 +112,38 @@ namespace negocio
                 datos.setVariables("@categoria", articulo.Categoria.Id);
                 datos.setVariables("@imagenUrl", articulo.ImagenUrl);
                 datos.setVariables("@precio", articulo.Precio);
-
-                try
-                {
-                    datos.EjecutarAccion();
-
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                finally
-                {
-                    datos.CerrarConexion();
-                }
+                datos.EjecutarAccion();
             }
             catch (Exception)
             {
 
                 throw;
             }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void EliminarProducto (int id)
+        {
+             AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setSP("SP_ELIMINAR");
+                datos.setVariables("@id", id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+           
         }
     }
 }

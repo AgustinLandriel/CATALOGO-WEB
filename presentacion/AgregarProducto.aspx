@@ -6,7 +6,8 @@
 
 
     <div class="row">
-        <h3 class="my-3">Agregá tu producto</h3>
+        <asp:Label Text="Agregá tu producto" CssClass="my-3 h3" ID="lblTitle" runat="server" />
+
         <div class="col-6 p-3 shadow-lg">
             <div class="mb-3">
                 <asp:Label Text="Nombre" CssClass="form-label" runat="server" />
@@ -23,13 +24,11 @@
             <asp:Label Text="Marca" CssClass="form-label" runat="server" />
             <div class="dropdown mb-3">
                 <asp:DropDownList CssClass="dropdown" ID="ddlMarca" runat="server">
-                    <asp:ListItem Text="Samsung" />
                 </asp:DropDownList>
             </div>
             <asp:Label Text="Categoria" CssClass="form-label" runat="server" />
             <div class="dropdown mb-3">
                 <asp:DropDownList CssClass="dropdown" ID="ddlCategoria" runat="server">
-                    <asp:ListItem Text="Celular" />
                 </asp:DropDownList>
             </div>
             <div class="mb-3">
@@ -43,6 +42,7 @@
             </div>
             <div class="mb-3">
                 <asp:Button Text="Agregar" ID="btnAgregar" CssClass="btn btn-success" runat="server" OnClick="btnAgregar_Click" />
+                <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-danger" runat="server" Visible ="false" OnClick="btnEliminar_Click" />
                 <a href="ProductoLista.aspx" class="btn btn-danger">Volver</a>
             </div>
         </div>
