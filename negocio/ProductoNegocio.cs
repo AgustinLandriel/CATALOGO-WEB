@@ -102,7 +102,7 @@ namespace negocio
 
             try
             {
-                List<Articulo> lista = new List<Articulo>();
+               
                 datos.setSP("SP_MODIFICAR");
                 datos.setVariables("@id", articulo.Id);
                 datos.setVariables("@codigo", articulo.Codigo);

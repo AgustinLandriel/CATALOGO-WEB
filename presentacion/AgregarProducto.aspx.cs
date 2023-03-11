@@ -90,6 +90,7 @@ namespace presentacion
                 {
                     lblAlerta.Text = "Articulo modificado correctamente!";
                     lblAlerta.CssClass = "alert alert-warning";
+                    articulo.Id = int.Parse(Request.QueryString["id"].ToString());
                     negocio.ModificarProducto(articulo);
 
                     return;
