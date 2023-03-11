@@ -21,20 +21,20 @@
                 <asp:Label Text="Descripcion" CssClass="form-label" runat="server" />
                 <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" CssClass="form-control resize" />
             </div>
-            <asp:Label Text="Marca" CssClass="form-label" runat="server" />
-            <div class="dropdown mb-3">
-                <asp:DropDownList CssClass="dropdown" ID="ddlMarca" runat="server">
+            <div class="mb-3">
+                <asp:Label Text="Marca" runat="server" />
+                <asp:DropDownList CssClass="form-select" ID="ddlMarca" runat="server">
                 </asp:DropDownList>
             </div>
-            <asp:Label Text="Categoria" CssClass="form-label" runat="server" />
-            <div class="dropdown mb-3">
-                <asp:DropDownList CssClass="dropdown" ID="ddlCategoria" runat="server">
+            <div class="mb-3">
+                <asp:Label Text="Categoria" runat="server" />
+                <asp:DropDownList CssClass="form-select" ID="ddlCategoria" runat="server">
                 </asp:DropDownList>
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Imágen producto</label>
-                <asp:TextBox ID="urlImagen" CssClass="form-control" runat="server" OnTextChanged="urlImagen_TextChanged" AutoPostBack="true"/>
-                <asp:Image ID="ImgFoto" CssClass="w-50 h-auto" runat="server"  />
+                <asp:TextBox ID="urlImagen" CssClass="form-control" runat="server" OnTextChanged="urlImagen_TextChanged" AutoPostBack="true" />
+                <asp:Image ID="ImgFoto" CssClass="w-50 h-auto my-4" runat="server" />
             </div>
             <div class="mb-3">
                 <asp:Label Text="Precio" CssClass="form-label" runat="server" />
@@ -42,12 +42,12 @@
             </div>
             <div class="mb-3">
                 <asp:Button Text="Agregar" ID="btnAgregar" CssClass="btn btn-success" runat="server" OnClick="btnAgregar_Click" />
-                <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-danger" runat="server" Visible ="false" OnClick="btnEliminar_Click" />
-                <a href="ProductoLista.aspx" class="btn btn-danger">Volver</a>
+                <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-danger" runat="server" Visible="false" OnClick="btnEliminar_Click" />
+                <a href="ProductoLista.aspx" class="btn btn-outline-primary">Volver</a>
             </div>
         </div>
-        
+
         <asp:Label Text="" ID="lblAlerta" runat="server" />
-        
+
     </div>
 </asp:Content>

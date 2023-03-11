@@ -28,6 +28,8 @@ namespace presentacion
                 ddlCategoria.DataValueField = "id";
                 ddlCategoria.DataTextField = "Descripcion";
                 ddlCategoria.DataBind();
+
+                ImgFoto.ImageUrl = "https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg";
             }
 
             try

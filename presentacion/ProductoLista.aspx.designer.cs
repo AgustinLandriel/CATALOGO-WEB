@@ -15,6 +15,15 @@ namespace presentacion
     {
 
         /// <summary>
+        /// Control txtBusqueda.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
+
+        /// <summary>
         /// Control dgvProductos.
         /// </summary>
         /// <remarks>
@@ -22,5 +31,14 @@ namespace presentacion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvProductos;
+
+        /// <summary>
+        /// Control lblBusquedaVacia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBusquedaVacia;
     }
 }
