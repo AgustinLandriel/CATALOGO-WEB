@@ -15,8 +15,10 @@ namespace presentacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductoNegocio negocio = new ProductoNegocio();
+            ddlCriterio.Enabled = false;
+            txtFiltroAvanzado.Enabled = false;
 
+            ProductoNegocio negocio = new ProductoNegocio();
             Session.Add("listaArticulo", negocio.ListarArticulos());
             dgvProductos.DataSource = Session["listaArticulo"];
             dgvProductos.DataBind();
@@ -61,14 +63,31 @@ namespace presentacion
             FiltroAvanzado = checkFiltro.Checked;
         }
 
-
+        private void HabilitarCampos()
+        {
+            ddlCriterio.Enabled = true;
+            txtFiltroAvanzado.Enabled = true;
+        }
+        private void DeshabilitarCampos()
+        {
+            ddlCriterio.Enabled = false;
+            txtFiltroAvanzado.Enabled = false;
+        }
         protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlFiltro.SelectedValue == "Precio")
+            if (ddlFiltro.SelectedValue == "Seleccione un filtro")
+            {
+                DeshabilitarCampos();
+                ddlCriterio.Items.Clear();
+                txtFiltroAvanzado.Text = "";
+
+            } else if (ddlFiltro.SelectedValue == "Precio")
             {
                 ddlCriterio.Items.Clear();
                 ddlCriterio.Items.Add("Mayor a");
                 ddlCriterio.Items.Add("Menor a");
+                HabilitarCampos();
+
             } else if (ddlFiltro.SelectedValue == "Categoria")
             {
                 ddlCriterio.Items.Clear();
@@ -77,18 +96,18 @@ namespace presentacion
                 ddlCriterio.DataValueField = "id";
                 ddlCriterio.DataTextField = "descripcion";
                 ddlCriterio.DataBind();
+                ddlCriterio.Enabled = true;
             }
             else if (ddlFiltro.SelectedValue == "Marca")
             {
                 ddlCriterio.Items.Clear();
                 MarcaNegocio negocio = new MarcaNegocio();
                 ddlCriterio.DataSource = negocio.ListarMarcas();
+                ddlCriterio.DataValueField = "id";
+                ddlCriterio.DataTextField = "descripcion";
                 ddlCriterio.DataBind();
+                ddlCriterio.Enabled = true;
             }
-
-        }
-        protected void ddlCriterio_SelectedIndexChanged1(object sender, EventArgs e)
-        {
 
         }
     }
