@@ -11,6 +11,8 @@ namespace presentacion
 {
     public partial class ProductoLista : System.Web.UI.Page
     {
+        public bool FiltroAvanzado { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
@@ -52,8 +54,42 @@ namespace presentacion
                 dgvProductos.DataBind();
                 lblBusquedaVacia.Text = "";
             }
+        }
 
-           
+        protected void checkFiltro_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltroAvanzado = checkFiltro.Checked;
+        }
+
+
+        protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlFiltro.SelectedValue == "Precio")
+            {
+                ddlCriterio.Items.Clear();
+                ddlCriterio.Items.Add("Mayor a");
+                ddlCriterio.Items.Add("Menor a");
+            } else if (ddlFiltro.SelectedValue == "Categoria")
+            {
+                ddlCriterio.Items.Clear();
+                CategoriaNegocio negocio = new CategoriaNegocio();
+                ddlCriterio.DataSource = negocio.ListarCategorias();
+                ddlCriterio.DataValueField = "id";
+                ddlCriterio.DataTextField = "descripcion";
+                ddlCriterio.DataBind();
+            }
+            else if (ddlFiltro.SelectedValue == "Marca")
+            {
+                ddlCriterio.Items.Clear();
+                MarcaNegocio negocio = new MarcaNegocio();
+                ddlCriterio.DataSource = negocio.ListarMarcas();
+                ddlCriterio.DataBind();
+            }
+
+        }
+        protected void ddlCriterio_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
         }
     }
 }

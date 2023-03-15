@@ -10,7 +10,7 @@ namespace negocio
 {
     public class CategoriaNegocio
     {
-        public List<Categoria> ListarMarcas()
+        public List<Categoria> ListarCategorias()
         {
               AccesoDatos datos = new AccesoDatos();
             try

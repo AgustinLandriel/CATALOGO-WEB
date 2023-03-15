@@ -24,7 +24,7 @@ namespace presentacion
                 ddlMarca.DataBind();
 
                 CategoriaNegocio negocioCategoria = new CategoriaNegocio();
-                ddlCategoria.DataSource = negocioCategoria.ListarMarcas();
+                ddlCategoria.DataSource = negocioCategoria.ListarCategorias();
                 ddlCategoria.DataValueField = "id";
                 ddlCategoria.DataTextField = "Descripcion";
                 ddlCategoria.DataBind();
