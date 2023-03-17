@@ -13,22 +13,29 @@
     </asp:ContentPlaceHolder>
 </head>
 <body class="bg-light">
-    <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="ProductoLista.aspx">Inicio</a>
+    <form id="form1" runat="server"  >
+        <nav class="navbar navbar-expand-lg bg-dark text-white">
+            <div class="container-fluid ">
+                <a class="navbar-brand text-warning " href="ProductoLista.aspx">Tienda App <i class="bi bi-cart2"></i> |</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        
-                        <%--<a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Pricing</a>
-                        <a class="nav-link disabled">Disabled</a>--%>
-
-                    </div>
-                </div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="ProductoLista.aspx">Lista de articulos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Mi Perfil</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end mx-2">
+                <a class="nav-link btn btn-outline-danger mx-2 p-2">Login</a>
+                <asp:Image ID="imgAvatar" CssClass="mx-3" Style=" height: 40px; width: 40px; border-radius: 50%;"
+                    runat="server" />
             </div>
         </nav>
         <div>
